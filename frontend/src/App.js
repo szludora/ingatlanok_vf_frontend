@@ -25,7 +25,6 @@ function App() {
           <h1>Ajánlataink</h1>
           <Ingatlan lista={ingatlanok}></Ingatlan>
         </Col>
-        <Col>asd</Col>
       </Container>
     </div>
   );

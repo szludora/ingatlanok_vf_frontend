@@ -1,39 +1,35 @@
-import Table from "react-bootstrap/Table";
+import Col from "react-bootstrap/esm/Col";
+import Row from "react-bootstrap/esm/Row";
+import Image from "react-bootstrap/Image";
+import Button from "react-bootstrap/Button";
+import "./kartya.css"
 
 export default function Ingatlan(props) {
   return (
-    <Table bordered hover>
-      <thead>
-        <tr>
-          <th>Kategória</th>
-          <th>Leírás</th>
-          <th>Hirdetés dátuma</th>
-          <th>Tehermentes</th>
-          <th>Fénykép</th>
-        </tr>
-      </thead>
-      <tbody>
+      <Row style={{border: "1px solid gray", padding: '2em'}}>
+        <Col className="fejlec" lg={2}><p>Kategória</p></Col>
+        <Col className="fejlec" lg={2}><p>Leírás</p></Col>
+        <Col className="fejlec" lg={2}><p>Hirdetés dátuma</p></Col>
+        <Col className="fejlec" lg={2}><p>Tehermentes</p></Col>
+        <Col className="fejlec" lg={4}><p>Fénykép</p></Col>
         {props.lista.map((e, i) => {
-          let teher = "igen";
-          if (e.tehermentes === 1) {
-            teher = "nem";
-          }
-          //   console.log(e.hirdetesDatuma.split("-").join("."));
           return (
-            <tr key={i}>
-              <td>{e.kategoriaNev}</td>
-              <td>{e.leiras}</td>
-              <td>{e.hirdetesDatuma}</td>
-              <td style={{ color: teher == "nem" ? "red" : "yellowgreen" }}>
-                {teher}
-              </td>
-              <td>
-                <img src={e.kepUrl} alt="kép" style={{ width: "10em" }} />
-              </td>
-            </tr>
+            <Col className="kartya" key={i} style={{border: "1px solid gray"}} sm={5} lg={12}>
+              <Row>
+              <Col className="kategoria" lg={2}><p>{e.kategoriaNev}</p></Col>
+              <Col className="leiras" lg={2}><p>{e.leiras}</p></Col>
+              <Col className="tartalom" lg={2}><p>{e.hirdetesDatuma}</p></Col>
+              <Col className="tartalom" lg={2} style={{ color: e.tehermentes == 0 ? "red" : "green" }}>
+                <p>{e.tehermentes === 0 ? "nem" : "igen"}</p>
+              </Col>
+              <Col className="kep" lg={4}>
+                <Image src={e.kepUrl} thumbnail></Image>
+              <Button className="gomb">Megnéz</Button>
+              </Col>
+              </Row>
+            </Col>
           );
         })}
-      </tbody>
-    </Table>
+      </Row>
   );
 }
