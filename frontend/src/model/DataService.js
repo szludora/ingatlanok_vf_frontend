@@ -41,4 +41,16 @@ export default class DataService {
       })
       .finally(function () {});
   }
+
+  getOpciok(vegpont, callback) {
+    axios
+      .get(vegpont)
+      .then(function (response) {
+        callback(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+      .finally(function () {});
+  }
 }
