@@ -26,7 +26,9 @@ export default class DataService {
       .catch(function (error) {
         console.log(error);
       })
-      .finally(function () {});
+      .finally(function () {
+        console.log(data)
+      });
   }
 
   deleteData(vegpont, id, callback) {
