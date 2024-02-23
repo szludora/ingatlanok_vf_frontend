@@ -2,6 +2,9 @@ import "./App.css";
 import DataService from "./model/DataService";
 import { useEffect, useState } from "react";
 import Ingatlan from "./component/Ingatlan";
+import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 
 function App() {
   const DS = new DataService();
@@ -18,8 +21,13 @@ function App() {
       <header className="App-header">
         Szlucska Dóra - Ingatlan vizsgafeladat
       </header>
-      <h1>Ajánlataink</h1>
-      <Ingatlan lista={ingatlanok}></Ingatlan>
+      <Container fluid>
+        <Col>
+          <h1>Ajánlataink</h1>
+          <Ingatlan lista={ingatlanok}></Ingatlan>
+        </Col>
+        <Col>asd</Col>
+      </Container>
     </div>
   );
 }
