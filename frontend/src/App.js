@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Ingatlan from "./component/Ingatlan";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
 
 function App() {
   const DS = new DataService();
