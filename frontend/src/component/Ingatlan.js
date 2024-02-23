@@ -5,6 +5,9 @@ import Button from "react-bootstrap/Button";
 import "./kartya.css"
 
 export default function Ingatlan(props) {
+  function megnez(e){
+    props.megnez(e)
+  }
   return (
       <Row style={{border: "1px solid gray", padding: '2em'}}>
         <Col className="fejlec" lg={2}><p>Kategória</p></Col>
@@ -24,7 +27,7 @@ export default function Ingatlan(props) {
               </Col>
               <Col className="kep" lg={4}>
                 <Image src={e.kepUrl} thumbnail></Image>
-              <Button className="gomb">Megnéz</Button>
+              <Button className="gomb" onClick={()=>{megnez(e)}}>Megnéz</Button>
               </Col>
               </Row>
             </Col>
