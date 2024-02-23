@@ -4,17 +4,18 @@ import { useEffect, useState } from "react";
 import Ingatlan from "./component/Ingatlan";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
-import Alert from "react-bootstrap/Alert";
-import Button from "react-bootstrap/Button";
+import Urlap from "./component/Urlap";
 
 function App() {
   const DS = new DataService();
   const vegpont = "/ingatlanok";
 
   const [ingatlanok, setIngatlanok] = useState([{}]);
+  const [opciok, setOpciok] = useState();
 
   useEffect(() => {
     DS.getData(vegpont, setIngatlanok);
+    DS.getOpciok(vegpont, setOpciok)
   }, []);
 
   function megnez(e) {
@@ -26,6 +27,7 @@ function App() {
       <header className="App-header">
         Szlucska Dóra - Ingatlan vizsgafeladat
       </header>
+      <Urlap adatok={opciok}></Urlap>
       <Container fluid>
         <Col>
           <h1>Ajánlataink</h1>
